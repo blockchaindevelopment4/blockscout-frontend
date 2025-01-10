@@ -114,6 +114,8 @@ const TxDetailsDegraded = ({ hash, txQuery }: Props) => {
         transaction_types: [],
         transaction_tag: null,
         actions: [],
+        // @ts-ignore
+        inscription: txReceipt?.inscription,
       };
     },
     placeholderData: [

@@ -105,6 +105,8 @@ export type Transaction = {
   translation?: NovesTxTranslation;
   arbitrum?: ArbitrumTransactionData;
   scroll?: ScrollTransactionData;
+  // AI
+  inscription?: string | null;
 };
 
 type ArbitrumTransactionData = {

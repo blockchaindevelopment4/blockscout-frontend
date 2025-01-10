@@ -29,6 +29,7 @@ import * as arbitrum from 'lib/rollups/arbitrum';
 import { MESSAGE_DESCRIPTIONS } from 'lib/tx/arbitrumMessageStatusDescription';
 import getConfirmationDuration from 'lib/tx/getConfirmationDuration';
 import { currencyUnits } from 'lib/units';
+import AiInscription from 'ui/shared/AiInscription';
 import Skeleton from 'ui/shared/chakra/Skeleton';
 import Tag from 'ui/shared/chakra/Tag';
 import CopyToClipboard from 'ui/shared/CopyToClipboard';
@@ -162,6 +163,19 @@ const TxInfo = ({ data, isLoading, socketStatus }: Props) => {
             <Box display="none" flexShrink={ 0 } id="meta-suites__tx-explorer-link"/>
           </>
         ) }
+      </DetailsInfoItem.Value>
+
+      <DetailsInfoItem.Label
+        hint="AI Inscription"
+        isLoading={ isLoading }
+      >
+        AI Inscription
+      </DetailsInfoItem.Label>
+      <DetailsInfoItem.Value>
+        { data.status === null && <Spinner mr={ 2 } size="sm" flexShrink={ 0 }/> }
+        <Skeleton isLoaded={ !isLoading } overflow="hidden">
+          <AiInscription inscription={ data.inscription }/>
+        </Skeleton>
       </DetailsInfoItem.Value>
 
       <DetailsInfoItem.Label
